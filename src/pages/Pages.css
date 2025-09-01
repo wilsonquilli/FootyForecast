@@ -1,0 +1,126 @@
+/* Home Page */
+
+body {
+    margin: 0; 
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+    color: #f8f8f8;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('../assets/smoke.png') repeat;
+    opacity: 0.05;
+    animation: smokeMove 60s linear infinite, smokeFloat 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes smokeMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 2000px 1000px; }
+}
+
+@keyframes smokeFloat {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    50% { transform: translate(20px, 10px) rotate(1deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.home-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.video {
+    max-width: 1250px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.video video {
+    width: 100%;
+    height: auto; 
+    display: block;
+}
+
+
+.video:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px #00e676, 0 0 60px #00e67644;
+}
+
+main h1 {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    color: #00e676;
+}
+
+.home-premier-league,
+.home-laliga,
+.home-nfl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.home-premier-league:hover,
+.home-laliga:hover,
+.home-nfl:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #00e67655, 0 0 60px #00e67622;
+}
+
+.home-premier-league img,
+.home-laliga img,
+.home-nfl img {
+  max-width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.home-premier-league p,
+.home-laliga p,
+.home-nfl p {
+    max-width: 600px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .home-premier-league,
+    .home-laliga,
+    .home-nfl {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-premier-league img,
+    .home-laliga img,
+    .home-nfl img {
+        max-width: 80px;
+    }
+}
